@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block title %} update contact {% endblock %}
+{% block body %} 
+<div>
+    <form action="/update/{{contacts.0}}" method="post" class="flex flex-1 flex-col justify-center h-full w-100 m-auto py-5">
+        <div class="flex justify-center flex-col items-center w-100 rounded h-130 bg-white text-black gap-5">
+            <h1 class="text-5xl">Editar Contacto</h1>
+            <div  class="flex flex-col gap-2">
+                {{ form.fullname.label }}
+                {{ form.fullname(class="form-control shadow-inner shadow-gray-400 py-2 rounded text-center bg-white text-black",placeholder="Nombre") }}
+            </div>
+            <div  class="flex flex-col gap-2">
+                {{ form.telefono.label }}
+                {{ form.telefono(class="form-control shadow-inner shadow-gray-400 py-2 rounded text-center bg-white text-black",placeholder="Telefono") }}
+            </div>
+            <div  class="flex gap-2">
+                <a class="py-3 px-5 bg-blue-200 rounded w-20 text-center"  href="{{ url_for("contacts") }}">Volver</a>
+                {{ form.submit(class="py-3 px-5 bg-green-300 rounded cursor-pointer") }}
+            </div>  
+        </div>
+    </form>
+</div>
+
+{% endblock %}
